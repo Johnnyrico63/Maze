@@ -1,0 +1,13 @@
+stages:
+  - build
+
+before_script:
+  - "echo off"
+  - 'call "%VS160COMNTOOLS%\VSDevCmd.bat"'
+
+build_job:
+  stage: build
+  script:
+    - 'c:\gitlab-ci-runner\nuget.exe restore'
+    - 'msbuild.exe AmazingMaze.sln'
+
